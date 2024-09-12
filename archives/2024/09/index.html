@@ -31,7 +31,7 @@
   
     <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_8z08qcz5sq3.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1725615745347">
+  <link rel="stylesheet" href="/css/style.css?v=1726136412647">
 <meta name="generator" content="Hexo 7.3.0"></head>
 
 <body class="mdui-drawer-body-left">
@@ -56,7 +56,7 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div class="nexmoe-count-item"><span>Articles</span>2 <div class="item-radius"></div><div class="item-radius item-right"></div> </div>
+        <div class="nexmoe-count-item"><span>Articles</span>3 <div class="item-radius"></div><div class="item-radius item-right"></div> </div>
         <div class="nexmoe-count-item"><span>Tags</span>0<div class="item-radius"></div><div class="item-radius item-right"></div></div>
         <div class="nexmoe-count-item"><span>Categories</span>0<div class="item-radius"></div><div class="item-radius item-right"></div></div>
     </div>
@@ -130,7 +130,7 @@
   <div class="nexmoe-widget-wrap">
     <h3 class="nexmoe-widget-title">Archive</h3>
     <div class="nexmoe-widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/">2024</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/">2024</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -169,6 +169,38 @@
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 <section class="nexmoe-posts">
+    
+    <div class="nexmoe-post">
+        <a href="/2024/09/12/%E5%89%8D%E7%AB%AF%E7%9A%84%E6%96%B9%E6%B3%95/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 24.305555555555554%;">
+                    <img data-src="/images/background/xiaomai.jpg" data-sizes="auto" alt="记录一些前端的时间转换方法" class="lazyload">
+                    <h1>记录一些前端的时间转换方法</h1>
+                </div>
+            
+        </a>
+        
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a style="color: #ff4e6a;"><i class="nexmoefont icon-calendar-fill"></i>2024年09月12日</a>
+            <a><i class="nexmoefont icon-areachart"></i>668 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
+        </div>
+        
+        <article>
+            
+                <h2 id="New-Date"><a href="#New-Date" class="headerlink" title="New Date()"></a>New Date()</h2><h3 id="data挂载方法-Date-转化为指定格式的String"><a href="#data挂载方法-Date-转化为指定格式的String" class="headerlink" title="data挂载方法 Date 转化为指定格式的String"></a>data挂载方法 Date 转化为指定格式的String</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/*日期格式化</span><br><span class="line">  对Date的扩展，将 Date 转化为指定格式的String</span><br><span class="line">  月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符， </span><br><span class="line">  年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字) </span><br><span class="line">  例子： </span><br><span class="line">  (new Date()).Format(<span class="string">&quot;yyyy-MM-dd hh:mm:ss.S&quot;</span>) ==&gt; 2006-07-02 08:09:04.423 </span><br><span class="line">  (new Date()).Format(<span class="string">&quot;yyyy-M-d h:m:s.S&quot;</span>)      ==&gt; 2006-7-2 8:9:4.18</span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">Date.prototype.Format = <span class="keyword">function</span> (<span class="built_in">fmt</span>) &#123;</span><br><span class="line">    <span class="built_in">let</span> o = &#123;</span><br><span class="line">        <span class="string">&quot;M+&quot;</span>: this.getMonth() + 1, //月份</span><br><span class="line">        <span class="string">&quot;d+&quot;</span>: this.getDate(), //日</span><br><span class="line">        <span class="string">&quot;h+&quot;</span>: this.getHours(), //小时</span><br><span class="line">        <span class="string">&quot;m+&quot;</span>: this.getMinutes(), //分</span><br><span class="line">        <span class="string">&quot;s+&quot;</span>: this.getSeconds(), //秒</span><br><span class="line">        <span class="string">&quot;q+&quot;</span>: Math.floor((this.getMonth() + <span class="number">3</span>) / <span class="number">3</span>), //季度</span><br><span class="line">        &quot;S&quot;: this.getMilliseconds() //毫秒</span><br><span class="line">    &#125;;</span><br><span class="line">    if (/(y+)/.test(fmt)) <span class="built_in">fmt</span> = fmt.replace(RegExp.<span class="variable">$1</span>, (this.getFullYear() + <span class="string">&quot;&quot;</span>).substr(4 - RegExp.<span class="variable">$1</span>.length));</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">let</span> k <span class="keyword">in</span> o) &#123;</span><br><span class="line">        <span class="keyword">if</span> (new RegExp(<span class="string">&quot;(&quot;</span> + k + <span class="string">&quot;)&quot;</span>).<span class="built_in">test</span>(<span class="built_in">fmt</span>)) <span class="built_in">fmt</span> = fmt.replace(RegExp.<span class="variable">$1</span>, (RegExp.<span class="variable">$1</span>.length == 1) ? (o[k]) : ((&quot;<span class="number">00</span>&quot; + o[k]).substr((&quot;&quot; + o[k]).length)));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> <span class="built_in">fmt</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="秒转换天-小时-分-秒"><a href="#秒转换天-小时-分-秒" class="headerlink" title="秒转换天&#x2F;小时&#x2F;分&#x2F;秒"></a>秒转换天&#x2F;小时&#x2F;分&#x2F;秒</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> const secToDay = (second_time) =&gt; &#123;</span><br><span class="line">    <span class="built_in">let</span> day, hour, min, second = parseInt(second_time), time = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">if</span> (parseInt(second_time) &gt; 60) &#123;</span><br><span class="line">        second = parseInt(second_time) % 60;</span><br><span class="line">        min = parseInt(second_time / 60);</span><br><span class="line">        <span class="keyword">if</span> (min &gt; 60) &#123;</span><br><span class="line">            min = parseInt(second_time / 60) % 60;</span><br><span class="line">            hour = parseInt(parseInt(second_time / 60) / 60);</span><br><span class="line">            <span class="keyword">if</span> (hour &gt; 24) &#123;</span><br><span class="line">                hour = parseInt(parseInt(second_time / 60) / 60) % 24;</span><br><span class="line">                day = parseInt(parseInt(parseInt(second_time / 60) / 60) / 24);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (day &gt; 0) time += day + <span class="string">&quot;天&quot;</span>;</span><br><span class="line">    <span class="keyword">if</span> (hour &gt; 0) time += hour + <span class="string">&quot;小时&quot;</span>;</span><br><span class="line">    <span class="keyword">if</span> (min &gt; 0) time += min + <span class="string">&quot;分&quot;</span>;</span><br><span class="line">    <span class="keyword">if</span> (second &gt; 0) time += second + <span class="string">&quot;秒&quot;</span>;</span><br><span class="line">    <span class="built_in">return</span> time || <span class="string">&quot;0秒&quot;</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="毫秒转换天"><a href="#毫秒转换天" class="headerlink" title="&#x2F;&#x2F;毫秒转换天"></a>&#x2F;&#x2F;毫秒转换天</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> const msecToDay = (msecond_time, flag) =&gt; &#123;</span><br><span class="line">    <span class="built_in">let</span> second_time = parseInt(msecond_time / 1000);</span><br><span class="line">    <span class="built_in">let</span> str = secToDay(second_time);</span><br><span class="line">    <span class="built_in">let</span> remainder = parseInt(msecond_time % 1000);</span><br><span class="line">    // 如果精确到毫秒并且整除存在余数，则拼接毫秒，否则显示到秒</span><br><span class="line">    <span class="built_in">return</span> flag &amp;&amp; remainder ? `<span class="variable">$&#123; str &#125;</span><span class="variable">$&#123; remainder &#125;</span>毫秒` : str;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="获取日期属于当年第几周"><a href="#获取日期属于当年第几周" class="headerlink" title="获取日期属于当年第几周"></a>获取日期属于当年第几周</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> const getWeekOfYear = (<span class="built_in">date</span>) =&gt; &#123;//date为时间戳格式</span><br><span class="line">    <span class="built_in">let</span> today = new Date(<span class="built_in">date</span>);</span><br><span class="line">    <span class="built_in">let</span> year = today.getFullYear();</span><br><span class="line">    <span class="built_in">let</span> firstDay = new Date(year, 0, 1);</span><br><span class="line">    <span class="built_in">let</span> dayOfWeek = firstDay.getDay();</span><br><span class="line">    <span class="built_in">let</span> spendDay = 0;</span><br><span class="line">    <span class="keyword">if</span> (dayOfWeek != 1) &#123;</span><br><span class="line">        spendDay = 7 - (dayOfWeek || 7) + 1;</span><br><span class="line">    &#125;</span><br><span class="line">    firstDay = new Date(year, 0, 1 + spendDay);</span><br><span class="line">    <span class="built_in">let</span> d = Math.ceil((today.valueOf() - firstDay.valueOf()) / 86400000);</span><br><span class="line">    <span class="built_in">let</span> result = Math.ceil(d / 7);</span><br><span class="line">    <span class="built_in">return</span> &#123;</span><br><span class="line">        <span class="string">&quot;year&quot;</span>: year,</span><br><span class="line">        <span class="string">&quot;week&quot;</span>: result + 1</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="获取当年第几周有哪几天"><a href="#获取当年第几周有哪几天" class="headerlink" title="&#x2F;&#x2F;获取当年第几周有哪几天"></a>&#x2F;&#x2F;获取当年第几周有哪几天</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> const getDaysByWeek = (year,week) =&gt; &#123;</span><br><span class="line">    <span class="built_in">let</span> arr = [];</span><br><span class="line">    <span class="built_in">let</span> i;</span><br><span class="line">    <span class="built_in">let</span> firstDay = new Date(year, 0, 1);</span><br><span class="line">    <span class="built_in">let</span> dayOfWeek = firstDay.getDay();</span><br><span class="line">    <span class="built_in">let</span> spendDay = 0;</span><br><span class="line">    <span class="keyword">if</span> (dayOfWeek != 1) &#123;</span><br><span class="line">        spendDay = 7 - (dayOfWeek || 7) + 1;</span><br><span class="line">    &#125;</span><br><span class="line">    firstDay = new Date(year, 0, 1 + spendDay);</span><br><span class="line">    <span class="built_in">let</span> time = new Date(year, 0, 1).valueOf();</span><br><span class="line">    <span class="keyword">if</span> (week == 1) &#123;</span><br><span class="line">        <span class="built_in">let</span> len = 7;</span><br><span class="line">        <span class="keyword">if</span> (dayOfWeek != 1) len = 7 - dayOfWeek + 1;</span><br><span class="line">        <span class="keyword">for</span> (i = 0; i &lt; len; i++) &#123;</span><br><span class="line">            arr.push(new Date(time + (86400000 * i)));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (i = 0; i &lt; 7; i++) &#123;</span><br><span class="line">            <span class="built_in">let</span> day = (week - 1);</span><br><span class="line">            <span class="built_in">let</span> <span class="built_in">date</span> = new Date(time + (86400000 * (day * 7 + (i - 1))));</span><br><span class="line">            <span class="keyword">if</span> (date.getFullYear() == year) arr.push(<span class="built_in">date</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> arr;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+            
+        </article>
+    </div>
     
     <div class="nexmoe-post">
         <a href="/2024/09/06/hello-world%20copy/">
@@ -954,7 +986,7 @@
 <script src="/lib/fancybox/js/jquery.fancybox.min.js"></script>
 
 
-<script src="/js/app.js?v=1725615745348"></script>
+<script src="/js/app.js?v=1726136412647"></script>
 
 <script src="https://lib.baomitu.com/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
 <script>
@@ -973,10 +1005,6 @@
 <!-- hexo injector body_end start -->
 <script src="/js/clock.js"></script>
 
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-
-<script src="/js/search.js"></script>
-
 <script src="https://lib.baomitu.com/clipboard.js/2.0.8/clipboard.min.js"></script>
 
 <script src="/lib/codeBlock/codeBlockFuction.js"></script>
@@ -988,6 +1016,10 @@
 <script src="/lib/codeBlock/codeShrink.js"></script>
 
 <link rel="stylesheet" href="/lib/codeBlock/matery.css">
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+<script src="/js/search.js"></script>
 
 <script src="/js/webapp.js"></script>
 <!-- hexo injector body_end end --></body>
