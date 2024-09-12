@@ -129,6 +129,7 @@ article pre {
   position: relative;
   background: #282c34;
   line-height: 1.3em;
+  text-align: left;
 }
 article pre::before {
   background: #282c34;
